@@ -1,0 +1,101 @@
+<app-bread-crumb
+  [items]="[{text: 'Relatório de Clientes'}]"
+></app-bread-crumb>
+
+<app-page-header
+  page-title="Relatório de dados cadastrais"
+  [show-button]="false"
+></app-page-header>
+
+
+<div class="card">
+  <div class="card-header">
+    Selecione um tipo de consulta
+  </div>
+
+  <div class="card-body">
+    <p-tabView>
+      <p-tabPanel header="Dados Basicos" leftIcon="pi pi-id-card">
+
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <p-multiSelect  [filter]="false" class="ui-fluid" [options]="cities2" [(ngModel)]="selectedCities2" optionLabel="name"></p-multiSelect>
+          </div>
+        </div>
+
+      </p-tabPanel>
+      <p-tabPanel header="Endereço" leftIcon="pi pi-map-marker">
+          Content 2
+      </p-tabPanel>
+  </p-tabView>
+
+  <br>
+
+  <div class="form-row">
+      <div class="col-md text-right">
+        <button type="button" (click)="generateReports()" class="btn btn-primary">
+          Gerar Relatórios
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--<div class="card-deck mt-5 mb-5">
+  <div class="card text-center text-white bg-success">
+    <div class="card-header">
+      TOTAL DE REGISTROS
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">
+        {{revenueTotal}}
+      </h3>
+    </div>
+  </div>
+
+  <div class="card text-center text-white bg-danger">
+    <div class="card-header">
+      TOTAL
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">
+        {{expenseTotal}}
+      </h3>
+    </div>
+  </div>
+
+  <div class="card text-center text-white bg-info">
+    <div class="card-header">
+      TOTAL
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">
+        {{balance}}
+      </h3>
+    </div>
+  </div>
+</div>-->
+
+<hr>
+
+<div class="row mt-5 mb-4">
+  <div class="col-md-6">
+
+    <p-card header="Dados Basicos">
+      <p-chart type="bar" [data]="data"></p-chart>
+
+    </p-card>
+
+    <p-chart type="pie" [data]="pieData" [options]="pieOptions"></p-chart>
+    <!--<p-chart type="bar" [data]="revenueChartData" [options]="chartOptions"></p-chart>-->
+  </div>
+
+  <div class="col-md-6">
+    <p-card header="Dados Basicos" subheader="Detalhes" styleClass="ui-card-shadow">
+      <p-chart type="pie" [data]="pieData2" [options]="pieOptions2"></p-chart>
+    </p-card>
+
+    <!--<p-chart type="bar" [data]="expenseChartData" [options]="chartOptions"></p-chart>-->
+  </div>
+</div>

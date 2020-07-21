@@ -12,7 +12,7 @@ import * as jsPDF from 'jspdf';
 })
 export class TabComponent implements OnInit {
 
-  @ViewChild('chartPieComponent', {static: false}) chartPieComponent: ChartPieComponent;
+  @ViewChild('chartPieComponent') chartPieComponent: ChartPieComponent;
 
   @ViewChildren(TabConditionComponent) tabsConditionComponent: QueryList<TabConditionComponent>;
 

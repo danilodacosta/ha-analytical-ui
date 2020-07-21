@@ -1,101 +1,48 @@
-<app-bread-crumb
-  [items]="[{text: 'Relatório de Clientes'}]"
-></app-bread-crumb>
-
-<app-page-header
-  page-title="Relatório de dados cadastrais"
-  [show-button]="false"
-></app-page-header>
+<app-page-header [breadCrumbItems]="[{text: 'Análise de Dados'}]" page-title="Análise de Dados" [show-button]="false"></app-page-header>
+<!--<app-bread-crumb [items]="[{text: 'Relatório de Clientes'}]"></app-bread-crumb>-->
 
 
-<div class="card">
-  <div class="card-header">
-    Selecione um tipo de consulta
-  </div>
+<!--criar um panel container-->
+<section class="content">
+  <div class="container-fluid">
 
-  <div class="card-body">
-    <p-tabView>
-      <p-tabPanel header="Dados Basicos" leftIcon="pi pi-id-card">
 
-        <div class="ui-g">
-          <div class="ui-g-6">
-            <p-multiSelect  [filter]="false" class="ui-fluid" [options]="cities2" [(ngModel)]="selectedCities2" optionLabel="name"></p-multiSelect>
+        <div class="container-fluid">
+          <!-- SELECT2 EXAMPLE -->
+          <div class="card card-default">
+            <div class="card-header">
+              <h3 class="card-title">Selecione os filtros para consulta</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <div class="row">
+
+                <div class="col-md-12">
+
+                <p-tabView>
+
+                  <p-tabPanel [header]="tab.name" *ngFor="let tab of tabs">
+
+                     <app-tab [tabName]="tab.name" [tableName]="tab.tableName"  [columns]="tab.columns"></app-tab>
+
+                  </p-tabPanel>
+
+                </p-tabView>
+              </div>
+
+              </div>
+            </div>
+
           </div>
-        </div>
+         <!-- /.card -->
 
-      </p-tabPanel>
-      <p-tabPanel header="Endereço" leftIcon="pi pi-map-marker">
-          Content 2
-      </p-tabPanel>
-  </p-tabView>
+          </div>
 
-  <br>
-
-  <div class="form-row">
-      <div class="col-md text-right">
-        <button type="button" (click)="generateReports()" class="btn btn-primary">
-          Gerar Relatórios
-        </button>
-      </div>
-    </div>
-
-  </div>
 </div>
+</section>
+<!--fim panel container-->
 
-<!--<div class="card-deck mt-5 mb-5">
-  <div class="card text-center text-white bg-success">
-    <div class="card-header">
-      TOTAL DE REGISTROS
-    </div>
-    <div class="card-body">
-      <h3 class="card-title">
-        {{revenueTotal}}
-      </h3>
-    </div>
-  </div>
-
-  <div class="card text-center text-white bg-danger">
-    <div class="card-header">
-      TOTAL
-    </div>
-    <div class="card-body">
-      <h3 class="card-title">
-        {{expenseTotal}}
-      </h3>
-    </div>
-  </div>
-
-  <div class="card text-center text-white bg-info">
-    <div class="card-header">
-      TOTAL
-    </div>
-    <div class="card-body">
-      <h3 class="card-title">
-        {{balance}}
-      </h3>
-    </div>
-  </div>
-</div>-->
-
-<hr>
-
-<div class="row mt-5 mb-4">
-  <div class="col-md-6">
-
-    <p-card header="Dados Basicos">
-      <p-chart type="bar" [data]="data"></p-chart>
-
-    </p-card>
-
-    <p-chart type="pie" [data]="pieData" [options]="pieOptions"></p-chart>
-    <!--<p-chart type="bar" [data]="revenueChartData" [options]="chartOptions"></p-chart>-->
-  </div>
-
-  <div class="col-md-6">
-    <p-card header="Dados Basicos" subheader="Detalhes" styleClass="ui-card-shadow">
-      <p-chart type="pie" [data]="pieData2" [options]="pieOptions2"></p-chart>
-    </p-card>
-
-    <!--<p-chart type="bar" [data]="expenseChartData" [options]="chartOptions"></p-chart>-->
-  </div>
-</div>

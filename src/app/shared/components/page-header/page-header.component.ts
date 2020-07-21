@@ -1,3 +1,4 @@
+import { BreadCrumbItem } from './../../models/bread-crumb-Item.model';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -6,6 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./page-header.component.scss']
 })
 export class PageHeaderComponent implements OnInit {
+
+
+  @Input() breadCrumbItems: Array<BreadCrumbItem> = [];
 
   // tslint:disable-next-line: no-input-rename
   @Input('page-title') pageTitle: string;

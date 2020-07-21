@@ -1,4 +1,29 @@
-<app-navbar></app-navbar>
-<div class="container">
-  <router-outlet></router-outlet>
+<div class="wrapper">
+  <app-navbar></app-navbar>
+  <!--<app-side-bar></app-side-bar>-->
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+
+    <div class="content">
+      <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  </div>
+  <!-- /.content-wrapper -->
+
+
+  <!-- Main Footer -->
+  <footer class="main-footer text-sm">
+    <strong
+      >Copyright &copy; 2020
+      <a href="#">MSCFILHO.NET</a>.</strong
+    >
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block"><b>Version</b> 1.0.0</div>
+  </footer>
 </div>
+
+<!--<router-outlet></router-outlet>-->

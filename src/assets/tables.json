@@ -1,0 +1,70 @@
+﻿{	
+	"tabs" : 
+	[
+	
+		{
+			"name" : "CLIENTES",
+			"tableName" : "clientes",
+			"columns": 
+			[
+				{"name" : "Nome"},
+				{"name" : "Rg"},
+				{"name" : "Cpf"},
+				{"name" : "Sexo"},
+				{"name" : "Nascimento" , "type": "date" },
+				{"name" : "Endereco"},
+				{"name" : "Numero"},
+				{"name" : "Complemento"},
+				{"name" : "Bairro"},
+				{"name" : "Telefone"},
+				{"name" : "Celular_1"}						
+			]
+		
+		},
+		{
+			"name" : "MÉDICOS",
+			"tableName" : "prestadores",
+			"columns": 
+			[
+				{"name" : "Nome"},
+				{"name" : "NomeCompleto"},
+				{"name" : "NomeAbreviado"},
+				{"name" : "Alias"},
+				{"name" : "RG"},
+				{"name" : "CPF"},
+				{"name" : "Telefone"},
+				{"name" : "Celular_1"},	
+				{"name" : "email"}			
+			]
+		
+		},
+		{
+			"name" : "ESPECIALIDADES",
+			"tableName" : "especialidades",
+			"columns": 
+			[
+				{"name" : "Nome"},
+				{"name" : "Alias"}				
+			]		
+		},
+		{
+			"name" : "CONVÊNIOS",
+			"tableName" : "convenios",
+			"columns": 
+			[
+				{"name" : "Nome"},
+				{"name" : "Alias"},
+				{"name" : "SubSSML"}				
+			]		
+		},
+		{
+			"name" : "SERVIÇOS",
+			"tableName" : "servicos",
+			"columns": 
+			[
+				{"name" : "Nome"},
+				{"name" : "Alias"}				
+			]		
+		}
+	]	
+}

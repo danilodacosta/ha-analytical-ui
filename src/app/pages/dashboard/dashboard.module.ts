@@ -8,9 +8,17 @@ import {TabViewModule} from 'primeng/tabview';
 import { FormsModule } from '@angular/forms';
 import {ChartModule} from 'primeng/chart';
 import {CardModule} from 'primeng/card';
+import { ChartPieComponent } from './chart/chart-pie/chart-pie.component';
+
+import { NgxEchartsModule } from 'ngx-echarts';
+import {TableModule} from 'primeng/table';
+import { TabComponent } from './tab/tab.component';
+
+import {ButtonModule} from 'primeng/button';
+import { TabConditionComponent } from './tab/tab-condition/tab-condition.component';
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, ChartPieComponent, TabComponent, TabConditionComponent],
   imports: [
     FormsModule,
     SharedModule,
@@ -18,8 +26,10 @@ import {CardModule} from 'primeng/card';
     MultiSelectModule,
     TabViewModule,
     ChartModule,
-    CardModule
-
+    CardModule,
+    ButtonModule,
+    TableModule,
+    NgxEchartsModule
 
   ]
 })

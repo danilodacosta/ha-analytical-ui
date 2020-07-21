@@ -1,8 +1,43 @@
-<div class="row mb-4">
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">{{pageTitle}}</h1>
+      </div>
+      <!-- /.col -->
+      <div class="col-sm-6">
+
+      <app-bread-crumb [items]="breadCrumbItems"></app-bread-crumb>
+
+<!--
+
+
+ <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item">
+            <a href="#">Home</a>
+          </li>
+          <li class="breadcrumb-item active">Dashboard v2</li>
+        </ol>
+
+-->
+
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+
+
+  </div>
+  <!-- /.container-fluid -->
+</div>
+
+
+<!--<div class="row mb-4">
   <div class="col-md-9">
     <h1 class="h2 border-left pl-2">{{pageTitle}}</h1>
   </div>
   <div *ngIf="showButton" class="col-md-3 text-right">
     <a [routerLink]="buttonLink" class="btn" [ngClass]="buttonClass"> {{buttonText}}</a>
   </div>
-</div>
+</div>-->

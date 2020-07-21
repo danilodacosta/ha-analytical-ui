@@ -1,0 +1,123 @@
+<div class="ui-g">
+    <div class="ui-g-12">
+      <div class="ui-fluid">
+        <div class="p-field p-grid">
+
+          <div class="p-col-12 p-md-10">
+            <p-multiSelect defaultLabel="selecione um ou mais campos" selectedItemsLabel="	{0} items selecionados"
+              [filter]="false" class="ui-fluid" [options]="columns" [(ngModel)]="selectedColumns"
+              optionLabel="name"></p-multiSelect>
+          </div>
+
+          <div>
+
+            <br>
+
+             <div class="row">
+
+              <div [ngClass]="{'col-md-12': selectedColumns.length === 1 }"  class="col-md-6" *ngFor="let item of selectedColumns">
+                   <app-tab-condition  [filtroname]="item.name" [column]="item"></app-tab-condition>
+                </div>
+
+             </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="form-row">
+        <div class="col-md margem-top">
+          <button type="button" [disabled]="!selectedColumns || selectedColumns.length == 0"
+            (click)="generateReports()" class="btn btn-primary">
+            Consultar Registros
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+<div class="row mt-5 mb-4">
+  <div class="col-12">
+
+    <div class="d-flex justify-content-center" *ngIf="chartPieComponent.consultandoDados">
+      <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+    <app-chart-pie #chartPieComponent></app-chart-pie>
+  </div>
+
+  <div class="col-md-12">
+
+    <div class="d-flex justify-content-center" *ngIf="chartPieComponent.consultandoClientes">
+      <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+
+    <div *ngIf="chartPieComponent.clientes.length > 0">
+      <h3>{{tableName}}</h3>
+      <p class="sub-title">Filtro de Pesquisa - {{chartPieComponent.filtroCondition}}</p>
+      <p-table #dt
+                [columns]="selectedColumnsFilter"
+                [value]="chartPieComponent.clientes"
+                [resizableColumns]="true"
+                [showCurrentPageReport]="true"
+                [responsive]="true"
+                [paginator]="true"
+                [rows]="5"
+                currentPageReportTemplate="{first} a {last} de {totalRecords} clientes"
+                [rowsPerPageOptions]="[5,10,25,50,100,500]">
+
+        <ng-template pTemplate="caption">
+
+          <div style="text-align:left">
+            <p-multiSelect [options]="cols" [(ngModel)]="selectedColumnsFilter" optionLabel="header"
+                        selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}" defaultLabel="Choose Columns"></p-multiSelect>
+        </div>
+
+            <!--<div class="ui-helper-clearfix" style="text-align: left">
+            <button type="button" pButton icon="pi pi-file-excel" iconPos="left" label="EXCEL"  style="margin-right: 0.5em;" class="ui-button-success"></button>
+              <button type="button" pButton icon="pi pi-file-pdf" iconPos="left" label="PDF"  (click)="exportPdf()" class="ui-button-warning"></button>
+          </div>-->
+      </ng-template>
+
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+
+            <th *ngFor="let col of columns" pResizableColumn>{{col.header| uppercase}}</th>
+
+            <!--<th style="width: 101px;">IdFromERP</th>
+            <th>Nome</th>
+            <th>RG</th>-->
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-item let-columns="columns" >
+          <tr>
+
+            <td *ngFor="let col of columns">
+
+               <span *ngIf="col.type !== 'date'">
+                {{item[col.field]}}
+              </span>
+              <span *ngIf="col.type === 'date'">
+                {{item[col.field] | date:'dd/MM/yyyy'}}
+              </span>
+
+            </td>
+            <!--<td style="text-align: center;">{{cliente?.idFromERP}}</td>
+            <td>{{cliente?.nome}}</td>
+            <td>{{cliente?.rg}}</td>-->
+          </tr>
+        </ng-template>
+      </p-table>
+
+    </div>
+  </div>
+</div>

@@ -1,1 +1,112 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700);
+
+body {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+
+h1 {
+  font-family: "Open Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+}
+h3 {
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 15.4px;
+}
+p { font-family: "Open Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  blockquote {
+    font-family: "Open Sans";
+    font-size: 21px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  pre {
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px;
+  }
+
+
+
+$azul-primario: #406d94;
+$cinza-primario: #808080;
+
+@mixin font($tamanho) {
+  font-size: $tamanho;
+}
+
+label {
+  font-weight: 700;
+  color: #5c666a;
+  margin-bottom: 4px;
+}
+
+input:focus {
+  //border-color: #2a85cc;
+  border-color: $azul-primario;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.btn-acoes {
+  background: none;
+  color: $azul-primario;
+  transition: all 0.2s;
+  font-size: 1rem;
+  border: none;
+
+  &:hover {
+    background: $azul-primario;
+    border-radius: 3px;
+    color: #fff;
+  }
+}
+
+div.ui-panel-titlebar {
+  span.ui-panel-title {
+    color: $azul-primario;
+    text-transform: uppercase;
+    @include font(12px);
+  }
+}
+
+table,
+label {
+  @include font(13px);
+}
+
+.page-title {
+  @include font(17px);
+}
+
+
+p-tabPanel {
+  font-size: 12px;;
+}
+
+.ui-tabview.ui-widget.ui-widget-content.ui-corner-all.ui-tabview-top {
+  font-size: 12px;
+}

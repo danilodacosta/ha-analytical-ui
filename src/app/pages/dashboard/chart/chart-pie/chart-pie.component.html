@@ -1,0 +1,5 @@
+<div echarts [options]="chartOption"
+     (chartClick)="onChartClick($event)" class="demo-chart">
+</div>
+
+<p *ngIf="totalClientes > 0"  class="total">Total de {{tableName}} : {{totalClientes}}</p>

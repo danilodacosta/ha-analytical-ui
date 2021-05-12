@@ -22,7 +22,7 @@
     "@angular/router": "~10.0.4",
     "admin-lte": "^3.0.5",
     "bootstrap": "^4.4.1",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "echarts": "^4.2.0-rc.2",
     "jquery": "^3.5.0",
     "jspdf": "^1.5.3",
